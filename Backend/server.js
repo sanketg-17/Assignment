@@ -42,7 +42,8 @@ const addProduct = async () => {
     if (!exists) {
         await Product.create({
             title: 'Nike zoom pegasus 41 running shoes',
-            description: '',
+            description: `The Nike Zoom Pegasus 41 is a responsive running shoe with ReactX foam for improved energy return. Dual Zoom Air units offer soft, springy cushioning. It's lightweight, breathable, and ideal for daily runs.
+`,
             price: 10000,
             imageUrl: 'images\AIR+ZOOM+PEGASUS+41+CM.jpg',
             variants: ['Black', 'White', 'Red','Blue'],
