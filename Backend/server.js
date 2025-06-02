@@ -1,9 +1,10 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import Product from './model/product.js';
 import cors from 'cors';
 
-
+dotenv.config();
 const router = express.Router();
 const app = express()
 
@@ -23,9 +24,10 @@ app.use(cors({
 }));
 
 const port = process.env.PORT || 8080;
+ const databaseUrl = process.env.MONGO_URI;
 
 
-mongoose.connect('mongodb+srv://Sanket:xQoeYPizVmzP3VHf@cluster0.kpbtq.mongodb.net/assignment?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect(process.env.MONGO_URI)
 .then(result => {
     app.listen(port);
     addProduct();
@@ -42,7 +44,7 @@ const addProduct = async () => {
             title: 'Nike zoom pegasus 41 running shoes',
             description: '',
             price: 10000,
-            imageUrl: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/189ce4af-d0e3-436c-a92e-b7231bcab00b/AIR+ZOOM+PEGASUS+41+CM.png',
+            imageUrl: 'images\AIR+ZOOM+PEGASUS+41+CM.jpg',
             variants: ['Black', 'White', 'Red','Blue'],
             sizes: ['6', '7', '8', '9', '10', '11', '12'],
             inventory: 100
