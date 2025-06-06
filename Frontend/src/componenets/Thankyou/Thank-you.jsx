@@ -36,8 +36,8 @@ const ThankYou = () => {
             <h2 className="text-xl font-semibold mt-6">Order Summary</h2>
             <ul className="mt-2">
                 <li><strong>Product:</strong> {order.order.title}</li>
-                <li><strong>Variant:</strong> {order.order.variant}</li>
-                <li><strong>Size:</strong> {order.order.size}</li>
+                <li><strong>Variant:</strong> {order.order.selectedVariant}</li>
+                <li><strong>Size:</strong> {order.order.selectedSize}</li>
                 <li><strong>Quantity:</strong> {order.order.quantity}</li>
                 <li><strong>Price:</strong> ₹{order.order.price}</li>
             </ul>
