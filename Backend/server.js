@@ -45,7 +45,7 @@ const addProduct = async () => {
             description: `The Nike Zoom Pegasus 41 is a responsive running shoe with ReactX foam for improved energy return. Dual Zoom Air units offer soft, springy cushioning. It's lightweight, breathable, and ideal for daily runs.
 `,
             price: 10000,
-            imageUrl: 'images\AIR+ZOOM+PEGASUS+41+CM.jpg',
+            imageUrl: '/images/AIR+ZOOM+PEGASUS+41+CM.jpg',
             variants: ['Black', 'White', 'Red','Blue'],
             sizes: ['6', '7', '8', '9', '10', '11', '12'],
             inventory: 100
