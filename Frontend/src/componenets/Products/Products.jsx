@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 export default function Products() {
 
     const [product, setProduct] = useState(null)
-    const [selectedVariant, setSelectedVariant] = useState(product ? product.variants[0] : "Black");
-    const [selectedSize, setSelectedSize] = useState(product?product.sizes[0] : "6");
+    const [selectedVariant, setSelectedVariant] = useState("Black");
+    const [selectedSize, setSelectedSize] = useState("6");
     const [quantity, setQuantity] = useState(1);
 
     const navigate = useNavigate();
@@ -19,10 +19,13 @@ export default function Products() {
     const decrement = () => setQuantity(prev => (prev > 1 ? prev - 1 : 1));
 
     useEffect(() => {
-        axios.get('/api/products')
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}/products`)
             .then((response) => {
                 console.log("API response:", response.data);
+                const data = response.data;
                 setProduct(response.data)
+                setSelectedVariant(data.variant?data.varients[0]: 'Black')
+                setSelectedVariant(data.variant?data.sizes[0]: '6')
             })
             .catch((error) => {
                 console.log(error)
@@ -35,7 +38,7 @@ export default function Products() {
 
     const handleBuyNow = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/api/product', {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/product`, {
         productId: product._id,
         title: product.title,
         selectedVariant,
@@ -80,7 +83,7 @@ export default function Products() {
                             onChange={handleVariantChange}
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
                         >
-                            {product.variants.map((variant) => (
+                            {product.variants?.map((variant) => (
                                 <option key={variant} value={variant}>
                                     {variant}
                                 </option>
@@ -98,7 +101,7 @@ export default function Products() {
                             onChange={handleSizeChange}
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
                         >
-                            {product.sizes.map((size) => (
+                            {product.sizes?.map((size) => (
                                 <option key={size} value={size}>
                                     {size}
                                 </option>

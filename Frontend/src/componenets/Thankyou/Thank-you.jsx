@@ -13,7 +13,7 @@ const ThankYou = () => {
         console.log(id);
 
         if (id) {
-            axios.get(`http://localhost:8080/api/thank-you/${id}`)
+           axios.get(`${import.meta.env.VITE_API_BASE_URL}/thank-you/${id}`)
                 .then((res) => {
                     setOrder(res.data);
                     setLoading(false);

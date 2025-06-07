@@ -43,7 +43,7 @@ export default function Checkout() {
     };
 
     try {
-      const res = await axios.post('http://localhost:8080/api/user', payload);
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/user`, payload);
 
       if (res.status === 200 && res.data.success) {
         window.location.href = `/thank-you?orderId=${res.data.orderId}`;
