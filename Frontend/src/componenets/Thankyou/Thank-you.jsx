@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const ThankYou = () => {
     const [order, setOrder] = useState(null);
@@ -7,8 +8,8 @@ const ThankYou = () => {
     const [orderId, setOrderId] = useState(null);
 
     useEffect(() => {
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get("orderId");
+        const { id } = useParams();  
+
         setOrderId(id);
         console.log(id);
 

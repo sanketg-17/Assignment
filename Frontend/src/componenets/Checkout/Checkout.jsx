@@ -46,7 +46,7 @@ export default function Checkout() {
       const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/user`, payload);
 
       if (res.status === 200 && res.data.success) {
-        window.location.href = `/thank-you?orderId=${res.data.orderId}`;
+        window.location.href = `/thank-you/${res.data.orderId}`;
       } else {
         alert(res.data.message || "Transaction failed.");
       }
