@@ -19,7 +19,7 @@ import getUser from './controller/user.js';
 import orderData from './controller/orderData.js';
 
 app.use(cors({
-  origin: ['http://localhost:5173','https://checkout-flow-simulation.vercel.app/'],
+  origin: ['http://localhost:5173','https://checkout-flow-simulation.vercel.app'],
   credentials: true
 }));
 
