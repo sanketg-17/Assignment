@@ -2,7 +2,7 @@ import Order from '../model/order.js';
 import User from '../model/user.js';
 
 const orderData = (req, res) => {
-  console.log(req.param)
+  console.log("Received ID:", req.params.id); 
   Order.findById(req.params.id)
     .populate('user')
     .then((order) => {
