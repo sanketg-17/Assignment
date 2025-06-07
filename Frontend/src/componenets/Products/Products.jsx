@@ -25,7 +25,7 @@ export default function Products() {
                 const data = response.data;
                 setProduct(response.data)
                 setSelectedVariant(data.variant?data.varients[0]: 'Black')
-                setSelectedVariant(data.variant?data.sizes[0]: '6')
+                setSelectedSize(data.variant?data.sizes[0]: '6')
             })
             .catch((error) => {
                 console.log(error)

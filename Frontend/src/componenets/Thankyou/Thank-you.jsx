@@ -7,8 +7,8 @@ const ThankYou = () => {
     const [loading, setLoading] = useState(true);
     const [orderId, setOrderId] = useState(null);
 
+    const { id } = useParams();  
     useEffect(() => {
-        const { id } = useParams();  
 
         setOrderId(id);
         console.log(id);
@@ -24,7 +24,7 @@ const ThankYou = () => {
                     setLoading(false);
                 });
         }
-    }, []);
+    }, [id]);
 
     if (loading) return <p>Loading...</p>;
     if (!order) return <p>Order not found.</p>;
